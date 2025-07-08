@@ -1,8 +1,4 @@
 // Funciones para operaciones sobre arrays de enteros
-// Unión (sin duplicados, como un set)
-function union(arr1, arr2) {
-  return Array.from(new Set(arr1.concat(arr2)));
-}
 
 // Unión (union all, permite duplicados)
 function unionAll(arr1, arr2) {
@@ -40,10 +36,19 @@ function differenceBminusA(arr1, arr2) {
   return differenceAminusB(arr2, arr1);
 }
 
+// Array Match: verifica si dos arrays tienen los mismos elementos en el mismo orden
+function arrayMatch(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
+  }
+  return true;
+}
+
 module.exports = {
-  union,
   unionAll,
   intersection,
   differenceAminusB,
-  differenceBminusA
+  differenceBminusA,
+  arrayMatch
 }; 

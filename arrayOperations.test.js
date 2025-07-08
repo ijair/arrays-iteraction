@@ -1,15 +1,10 @@
 const {
-  union,
   unionAll,
   intersection,
   differenceAminusB,
-  differenceBminusA
+  differenceBminusA,
+  arrayMatch
 } = require('./arrayOperations');
-
-test('union devuelve los elementos únicos de ambos arrays', () => {
-  expect(union([1,2,3], [3,4,5])).toEqual([1,2,3,4,5]);
-  expect(union([1,2,3], [1,2,3])).toEqual([1,2,3]);
-});
 
 test('unionAll une dos arrays permitiendo duplicados', () => {
   expect(unionAll([1,2,3], [3,4,5])).toEqual([1,2,3,3,4,5]);
@@ -28,4 +23,11 @@ test('differenceAminusB devuelve los elementos de A que no están en B', () => {
 test('differenceBminusA devuelve los elementos de B que no están en A', () => {
   expect(differenceBminusA([1,2,2,3], [2,2,4])).toEqual([4]);
   expect(differenceBminusA([1,2,3], [1,2,3])).toEqual([]);
+});
+
+test('arrayMatch compara si dos arrays son exactamente iguales', () => {
+  expect(arrayMatch([1,2,3], [1,2,3])).toBe(true);
+  expect(arrayMatch([1,2,3], [3,2,1])).toBe(false);
+  expect(arrayMatch([1,2,3], [1,2,3,4])).toBe(false);
+  expect(arrayMatch([], [])).toBe(true);
 }); 
