@@ -4,6 +4,7 @@
   "description": "Operaciones sobre arrays de enteros: unión, intersección, diferencia.",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "jest"
   },
   "devDependencies": {
